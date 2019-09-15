@@ -5,16 +5,16 @@ b = gets.chomp.to_f
 puts "3rd side"
 c = gets.chomp.to_f
 
-arr = [a,b,c].sort!
+a, b, h = [a,b,c].sort
 
-if (arr[0] == arr[1]) && (arr[0] == arr[2])
+if [a, b, h].uniq.length == 1
   puts "треугольник равнобедренный и равносторонний"
-elsif ( arr[2] * arr[2] == arr[0] * arr[0] + arr[1] * arr[1]) && (arr[0] == arr[1])
+elsif ( h * h == a * a + b * b) && (a == b)
   puts "равнобедренный прямоугольный треугольник"
-elsif ( arr[2] * arr[2] == arr[0] * arr[0] + arr[1] * arr[1])
+elsif h * h == a * a + b * b
   puts "треугольник прямоугольный"
-elsif (arr[0] == arr[1]) || (arr[1] == arr[2]) || (arr[0] == arr[2])
+elsif [a, b, h].uniq.length == 2
   puts "треугольник равнобедренный"
 else
-  puts "треугольник не является прямым, равнобедоенным или равносторонним"
+  puts "треугольник не является прямоугольным, равнобедоенным или равносторонним"
 end
